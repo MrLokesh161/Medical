@@ -1,5 +1,4 @@
-// DashboardPage.js
-
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const SampleUser = ({ user }) => {
@@ -20,12 +19,17 @@ const SampleUser = ({ user }) => {
   );
 };
 
+
 const DashboardPage = () => {
   const [selectedUserType, setSelectedUserType] = useState('new');
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handlesubmit = () => {
+    console.log('User logged out');
   };
 
   const handleSearch = () => {
@@ -39,6 +43,7 @@ const DashboardPage = () => {
   const handleLogout = () => {
     console.log('User logged out');
   };
+  
 
   const sampleUser = [
     { username: 'JohnDoe', email: 'john.doe@example.com' },
@@ -133,6 +138,7 @@ const DashboardPage = () => {
                   />
                 </div>
               </div>
+              <br /><br /><br />
             </div>
           )}
 
@@ -164,8 +170,20 @@ const DashboardPage = () => {
                   />
                 </div>
               </div>
+              <br /><br /><br />
             </div>
           )}
+
+          <div className="mb-6 text-center">
+              {/* Use Link instead of button and provide the 'to' prop with the desired route */}
+              <Link
+                to="/Display"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={handlesubmit}
+              >
+                Submit
+              </Link>
+            </div>
 
           {/* Search Section */}
           <div className="flex items-center mt-8">
