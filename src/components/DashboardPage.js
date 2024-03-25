@@ -20,6 +20,8 @@ const SampleUser = ({ user }) => {
 };
 
 
+
+
 const DashboardPage = () => {
   const [selectedUserType, setSelectedUserType] = useState('new');
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,7 +52,19 @@ const DashboardPage = () => {
     { username: 'JohnDoe', email: 'john.doe@example.com' },
     { username: 'JohnDoe', email: 'john.doe@example.com' },
   ];
-
+  
+  const targetUsername = 'sample1';
+  let redirectTo;
+  
+  // Check if the targetUsername exists in the sampleUser array
+  const userExists = sampleUser.some(user => user.username === targetUsername);
+  
+  if (userExists) {
+    redirectTo = "/Display";
+  } else {
+    redirectTo = "/Display1";
+  }
+  
   return (
     <div className="h-screen flex flex-col bg-gray-100">
       {/* Navigation Bar */}
@@ -177,7 +191,7 @@ const DashboardPage = () => {
           <div className="mb-6 text-center">
               {/* Use Link instead of button and provide the 'to' prop with the desired route */}
               <Link
-                to="/Display"
+                to={redirectTo}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 onClick={handlesubmit}
               >

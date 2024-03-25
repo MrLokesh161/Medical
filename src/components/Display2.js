@@ -1,8 +1,8 @@
 import React from 'react';
-import image1 from '../assets/hand.png';
+import image1 from '../assets/normal.jpg';
 import image2 from '../assets/report.png';
 
-const DisplayPage = () => {
+const DisplayPage1 = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200">
       <div className="flex rounded-lg overflow-hidden shadow-lg">
@@ -13,4 +13,4 @@ const DisplayPage = () => {
   );
 };
 
-export default DisplayPage;
+export default DisplayPage1;
